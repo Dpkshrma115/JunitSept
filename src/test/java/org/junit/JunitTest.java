@@ -59,6 +59,7 @@ public class JunitTest extends BaseClass {
 	public void test4() {
 		urlLaunch("https://www.amazon.ca/");
 		implicitWait(10);
+		driver.manage().window().maximize();
 		
 		
 
@@ -68,7 +69,7 @@ public class JunitTest extends BaseClass {
 	public void test3() {
 		urlLaunch("https://www.snapdeal.com/");
 		implicitWait(10);
-
+		driver.manage().window().maximize();
 	}
 
 }
