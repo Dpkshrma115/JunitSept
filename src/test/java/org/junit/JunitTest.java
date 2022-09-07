@@ -1,45 +1,74 @@
 package org.junit;
 
-public class JunitTest {
+import java.util.Date;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.test.AmazonSearch;
+import org.test.BaseClass;
+import org.test.LoginPage;
+
+public class JunitTest extends BaseClass {
+
+	public JunitTest() {
+		PageFactory.initElements(driver, this);
+	}
+
 	@BeforeClass
 	public static void beforeClass() {
-		System.out.println("BeforeClass");
+		chromeLaunch();
 
 	}
+
 	@AfterClass
 	public static void afterClass() {
-		System.out.println("AfterClass");
+		driver.quit();
 
 	}
+
 	@Before
 	public void before() {
-		System.out.println("Before");
+		Date d = new Date();
 
+		System.out.println("Date Before " + d);
+		;
 	}
-	
+
 	@After
 	public void after() {
-		System.out.println("After");
+		Date d = new Date();
+		System.out.println("Daye After  " + d);
 
 	}
+// FaceBook Login
 	@Test
 	public void test1() {
-		System.out.println("Junit Test 1");
-		
+
+		urlLaunch("https://www.facebook.com/");
+		implicitWait(10);
+
+		LoginPage l = new LoginPage();
+		l.getUsrnname().sendKeys("DeepakSharma");
+		l.getPassword().sendKeys("Notcorrectone");
+		l.getLoginbtn().click();
 
 	}
+// Amazon search
 	@Test
 	public void test4() {
-		System.out.println("Junit Test 4");
+		urlLaunch("https://www.amazon.ca/");
+		implicitWait(10);
+		
 		
 
 	}
+
 	@Test
 	public void test3() {
-		System.out.println("Junit Test 3");
-		
+		urlLaunch("https://www.snapdeal.com/");
+		implicitWait(10);
 
 	}
-	
 
 }
