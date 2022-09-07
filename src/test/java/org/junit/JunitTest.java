@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.test.AmazonSearch;
 import org.test.BaseClass;
@@ -60,6 +61,9 @@ public class JunitTest extends BaseClass {
 		urlLaunch("https://www.amazon.ca/");
 		implicitWait(10);
 		driver.manage().window().maximize();
+		
+		WebElement srchbx = driver.findElement(By.id("twotabsearchtextbox"));
+		sendKeys(srchbx, "Apple");
 		
 		
 
